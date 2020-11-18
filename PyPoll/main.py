@@ -49,16 +49,35 @@ with open(election_csv, 'r') as csvfile:
         winner = "O'Tooley"
 
 
-    print(f' Election Results')
+    print(f'Election Results')
     print(f'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
-    print(f' Total Votes: {votes}')
+    print(f'Total Votes: {votes}')
     print(f'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
-    print(f' Khan: {khan_percent}% ({Khan})')
-    print(f' Correy: {correy_percent}% ({Correy})')
-    print(f' Li: {li_percent}% ({Li})')
-    print(f' O_Tooley: {o_tooley_percent}% ({O_Tooley})')
+    print(f'Khan: {khan_percent}% ({Khan})')
+    print(f'Correy: {correy_percent}% ({Correy})')
+    print(f'Li: {li_percent}% ({Li})')
+    print(f"O'Tooley: {o_tooley_percent}% ({O_Tooley})")
     print(f'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
-    print(f' Winner: {winner}')
+    print(f'Winner: {winner}')
     print(f'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
 
             
+import os.path
+
+outputpath = os.path.join("Analysis","analysis.txt")
+
+output = open(outputpath,"w")
+
+output.write(f'Election Results\n')
+output.write(f'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n')
+output.write(f'Total Votes: {votes}\n')
+output.write(f'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n')
+output.write(f'Khan: {khan_percent}% ({Khan})\n')
+output.write(f'Correy: {correy_percent}% ({Correy})\n')
+output.write(f'Li: {li_percent}% ({Li})\n')
+output.write(f"O'Tooley: {o_tooley_percent}% ({O_Tooley})\n")
+output.write(f'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n')
+output.write(f'Winner: {winner}\n')
+output.write(f'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n')
+
+output.close()

@@ -65,14 +65,22 @@ with open(budget_csv, 'r') as csvfile:
     print(f'Average Change: ${average_change}')
     print(f'Greatest Increase in Profits: {maxrowdate} (${max_value})')
     print(f'Greatest Decrease in Profits: {minrowdate} (${min_value})')
-    
-
-
-        
-
-    
 
 
 
 
+import os.path
 
+outputpath = os.path.join("Analysis","analysis.txt")
+
+output = open(outputpath,"w")
+
+output.write("Financial Analysis\n")
+output.write(f'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n')
+output.write(f'Total Months: {final_months}\n')
+output.write(f'Total: ${final_total}\n')
+output.write(f'Average Change: ${average_change}\n')
+output.write(f'Greatest Increase in Profits: {maxrowdate} (${max_value})\n')
+output.write(f'Greatest Decrease in Profits: {minrowdate} (${min_value})\n')
+
+output.close()
