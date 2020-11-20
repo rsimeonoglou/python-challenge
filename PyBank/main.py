@@ -13,8 +13,12 @@ with open(budget_csv, 'r') as csvfile:
     # Split the data on commas
     csvreader = csv.reader(csvfile, delimiter=',')
 
+    #make the first row the header
     header = next(csvreader)
+    #make the next row the first row attribute
     firstrow = next(csvreader)
+
+    #define attributes
 
     Months = 0
     NetTotal = 0
@@ -26,6 +30,8 @@ with open(budget_csv, 'r') as csvfile:
     maxrowdate = str(firstrow[0])
     min_value = int(firstrow[2])
     minrowdate = str(firstrow[0])
+
+    #loop through CSV by row
 
     for row in csvreader:
         
@@ -52,12 +58,12 @@ with open(budget_csv, 'r') as csvfile:
         change_amount = change_amount + row[2]    
         
      
-
+#calculations 
     final_months = Months + 1
     final_total = NetTotal + first_row_profit
     average_change = round(change_amount/(final_months - 1),2)
 
-
+#print financial analysis
     print('Financial Analysis')
     print(f'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
     print(f'Total Months: {final_months}')
@@ -68,7 +74,7 @@ with open(budget_csv, 'r') as csvfile:
 
 
 
-
+#write the financial analysis to a txt file
 import os.path
 
 outputpath = os.path.join("Analysis","analysis.txt")

@@ -10,14 +10,17 @@ with open(election_csv, 'r') as csvfile:
     # Split the data on commas
     csvreader = csv.reader(csvfile, delimiter=',')
 
+    #make first row the header
     header = next(csvreader)
 
+    #designate attributes
     votes = 0
     Khan = 0
     Correy = 0
     Li = 0
     O_Tooley = 0
 
+    #loop through CSV
     for row in csvreader:
         
         votes +=1
@@ -34,11 +37,13 @@ with open(election_csv, 'r') as csvfile:
             O_Tooley = O_Tooley + 1
 
     
+    #calculations
     khan_percent = round((Khan/votes)*100,3)
     correy_percent = round((Correy/votes)*100,3)
     li_percent = round((Li/votes)*100,3)
     o_tooley_percent = round((O_Tooley/votes)*100,3)
 
+    #find winner by most votes
     if Khan > Correy and Khan > Li and Khan > O_Tooley:
         winner = "Khan"
     elif Correy > Khan and Correy > Li and Correy > O_Tooley:
@@ -48,7 +53,7 @@ with open(election_csv, 'r') as csvfile:
     else:
         winner = "O'Tooley"
 
-
+    #print Results
     print(f'Election Results')
     print(f'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
     print(f'Total Votes: {votes}')
@@ -61,6 +66,7 @@ with open(election_csv, 'r') as csvfile:
     print(f'Winner: {winner}')
     print(f'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
 
+#export results to a txt file
             
 import os.path
 
